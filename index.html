@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+<style>
+body {margin: 0px;}
+#wrap {background-color: aquamarine; height: 1000px; width: 100%; overflow:hidden;}
+input {display: none;}
+    #button {width:1000px; height:150px; margin: 10px auto; 
+        overflow:hidden; padding-left:10px; box-sizing:border-box; background-color: white;}
+    .thumbnail {margin-left:15px; margin-top:5px; width:220px; height:125px; display:block; float:left;}
+    #frame {width:1000px; height:700px; margin: 10px auto; margin:10px auto;
+    overflow:hidden; box-sizing:border-box; background-color: white;}
+    #slide {width:4100px; height:700px; transition-duration:1s;}
+    #conta, #contb, #contc, #contd {width:1000px; height:700px;
+        float:left; padding:10px 0px 0px 25px; box-sizing:border-box;}
+    .video {;} 
+    span {font-size: 2rem; font-weight:bold;}
+    p {font-size: 1.5rem; font-weight:bold;}
+
+#inputa:checked ~ #frame > #slide {margin-left:-0px;}
+#inputb:checked ~ #frame > #slide {margin-left:-1000px;}
+#inputc:checked ~ #frame > #slide {margin-left:-2000px;}
+#inputd:checked ~ #frame > #slide {margin-left:-3000px;}
+
+#inputa:checked ~ #button > #labela {border:5px solid orange; width:230px; height: 130px;}
+#inputb:checked ~ #button > #labelb {border:5px solid orange; width:230px; height: 130px;}
+#inputc:checked ~ #button > #labelc {border:5px solid orange; width:230px; height: 130px;}
+#inputd:checked ~ #button > #labeld {border:5px solid orange; width:230px; height: 130px;}
+
+
+
+</style>
+
+</head>
+<body>
+<div id="wrap">
+    <input id="inputa" type="radio" name="abc" onchange="pause()" checked>
+    <input id="inputb" type="radio" name="abc" onchange="pause()">
+    <input id="inputc" type="radio" name="abc" onchange="pause()">
+    <input id="inputd" type="radio" name="abc" onchange="pause()">
+
+
+<div id="button">
+    <label id="labela" for="inputa" class="thumbnail"><img src="01.jpg" height="100%"></label>
+    <label id="labelb" for="inputb" class="thumbnail"><img src="02.jpg" height="100%"></label>
+    <label id="labelc" for="inputc" class="thumbnail"><img src="03.jpg" height="100%"></label>
+    <label id="labeld" for="inputd" class="thumbnail"><img src="04.jpg" height="100%"></label>
+</div>
+
+<div id="frame">
+   
+    <div id="slide">
+        <div id="conta">
+            <video class="video" src="01.mp4" poster="01.jpg" controls width="950px"></video>
+        <br><span>제목1</span> 
+        <br> <p>자세한 설명 <a href="랜덤주소" target="_blank">스토리보드 팝업</a></p> </div>
+        <div id="contb">
+            <video class="video" src="02.mp4" poster="02.jpg" controls width="950px"></video>
+        <br><span>제목2</span>
+            <br><p>자세한 설명 <a href="랜덤주소" target="_blank">스토리보드 팝업</a></p></div>    
+        <div id="contc">
+            <iframe src="https://drive.google.com/file/d/14k9MeWiN_CDGxsE2gUNdxv10UzArCZiN/preview" width="640" height="480"></iframe>
+        <br><span>제목3</span>
+            <br><p>자세한 설명 <a href="랜덤주소" target="_blank">스토리보드 팝업</a></p></div>
+        
+        <div id="contd">
+            <video class="video" src="04.mp4" poster="04.jpg" controls width="950px"></video>
+        <br><span>제목4</span>    
+            <br><p>자세한 설명 <a href="랜덤주소" target="_blank">스토리보드 팝업</a></p></div>
+
+    </div>
+  </div>  
+</div>
+
+
+    <script>
+        function pause(){
+            const videos = document.querySelectorAll('.video');
+            videos.forEach(video =>video.pause());
+        }
+        
+
+
+    </script>
+
+</body>
+</html>
